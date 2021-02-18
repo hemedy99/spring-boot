@@ -1,0 +1,37 @@
+
+server:
+  port: 8650
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: admin
+    url: jdbc:postgresql://localhost:5432/student?currentSchema=public
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+
+
+log4j:
+  appender:
+    stdout: org.apache.log4j.ConsoleAppender
+    stdout.Target: System.out
+    stdout.layout: org.apache.log4j.PatternLayout
+    stdout.layout.ConversionPattern: "%d{HH:mm:ss,SSS} %-5p [%c] - %m%n"
+  logger:
+    org:
+      hibernate: info
+      hibernate.SQL: debug
+  rootLogger: info, stdout
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
