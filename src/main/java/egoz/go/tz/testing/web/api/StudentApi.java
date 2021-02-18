@@ -29,7 +29,7 @@ public interface StudentApi {
     public ResponseEntity<StudentResponseDto> searchById(@RequestParam Long id)throws NotFoundException;
 
     //Update
-    @RequestMapping(value="/", method = RequestMethod.PUT, produces="application/json",consumes="application/json")
+    @RequestMapping(value="/update", method = RequestMethod.PUT, produces="application/json",consumes="application/json")
     public ResponseEntity<StudentResponseDto> UpdateUser(@RequestParam Long id, @RequestBody StudentRequestDto student)throws NotFoundException;
 
 }
